@@ -110,3 +110,4 @@ class TaskInstanceTestView(TestCase):
         self.assertEqual(response.status_code, 204)
 
 
+
