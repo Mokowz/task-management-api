@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
 
 load_dotenv()
 
@@ -85,11 +86,17 @@ WSGI_APPLICATION = 'tasksApp.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "taskszangu",
+        "USER": "ronny",
+        "PASSWORD": "kitengela",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
+
+DATABASES['default'] = dj_database_url.parse(os.getenv('DATABASE_URL'))
 
 
 # Password validation
